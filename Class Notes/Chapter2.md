@@ -17,7 +17,7 @@ For any real number $x$,
 $X^{-1}((-\infty, x]) = \Set{\omega : X(\omega) \leq x}$ 
 <br>
 is an event with probability $P(X \leq x)$. 
-<br>
+
 ![Figure1](./images/Figure1.png)
 <br>
 Note that, $R$ is the interval $(-\infty, x]$. This means that we are summing the probability of every outcomes in the interval to obtain the probability that the event representing that interval occurs.
