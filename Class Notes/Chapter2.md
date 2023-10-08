@@ -59,7 +59,6 @@ Let $y$ be a real number and $S_ \leq y = \Set{x: g(x) \leq y}$. Then, $F_Y(y) =
 ### PMF
 If $X$ is discrete, then $ Y = g(X)$ is discrete.<br>
 Let $S_=y = \Set{x: g(x) = y}$. We have $p_Y(y) = P(X \in S_=y)$
-
 ### Go from PDF of $X$ to $Y$
 Find the CDF of $Y$ from $X$ and differentiate it.
 
