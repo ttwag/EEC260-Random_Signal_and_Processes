@@ -75,7 +75,7 @@ $E[Y] = \sum_{x} g(x)p_X(x)$
 ### Moment
 The $l^{th}$ moment of the random variable $X$, where $l$ is a positive integer, is given by $E[X^{l}]$. The first moment is the expectation.
 ### Variance
-The *variance* of $X$ is $Var[X] = E[(X - m_X)^{2}] = E[X^{2}] - m^{2}_X$
+The *variance* of $X$ is $K = Var[X] = E[(X - m_X)^{2}] = E[X^{2}] - m^{2}_X$
 ### Moment Generating Function
 The *moment generating function* of $X$ is $M_X(s) = E[e^{sX}]$ where s is in the region of nvergence (ROC) of the function.<br>
 * Property: $E[X^{l}] = \frac{d^{l}}{ds^{l}} M_X(s)\large |_{s = 0}$
@@ -156,5 +156,20 @@ F_X(x) =
 $
 * $E[X] = \frac{1}{\lambda}$
 * $E[X^{2}] = \frac{1}{\lambda^{2}}$
-* The exponential random variable is memoryless, which means $P(X > a + b) = P(X > a) = P(X > a)P(X > b)$.
+
+The exponential random variable is memoryless, which means 
+* $P(X > a + b | X > b) = P(X > a)$.
+* $P(X > a + b) = P(X > a)P(X > b)$.
+
+### Gaussian Random Variable
+A *Gaussian*, also called *normal*, random variable, $X$, denoted by Gaussian($m, K$), $K > 0$, is a continuous random variable with PDF and CDF given by
+$$ f_X(x) = \frac{1}{\sqrt{2 \pi K}}e^{-\frac{(x-m)^{2}}{2K}}$$
+
+$$F_X(x) = \frac{1}{\sqrt{2 \pi K}} \int_{-\infty}^{x}e^{-\frac{(x-m)^{2}}{2K}}dx$$
+Important Properties:
+* If $X$ is Gaussian($m, K$), then $Y = aX + b$, where $a ≠ 0$, is Gaussian($am + b, |a|^{2}K$).
+* $E[X] = m$
+* $K_X = K$
+* $M_X(s) = e^{ms + \frac{Ks^{2}}{2}}$
+* $\phi_X(\omega) = e^{m\omega + \frac{K\omega^{2}}{2}}$
 
