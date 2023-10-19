@@ -97,14 +97,15 @@ Denoted by Bernoulli($p$), is a discrete random variable which assumes two value
 * $\phi_X(\omega) = (1 - p) + pe^{j\omega}$.
 ### Binomial Random Variable
 Denoted by Binomial($n, p$), is a discrete random variable which counts the number of successes in n independent trials where the probability of each success is $p$. It assumes the values $0, 1, 2, ..., n $ with PMF given by <br>
-$p_X(k) = {\binom {n}{k}}p^{k}(1 - p)^{n - k}$.<br>
+$$p_X(k) = {\binom {n}{k}}p^{k}(1 - p)^{n - k}$$
 We have
 * $E[X] = np$
 * $K_X = np(1-p)$
 * $M_X(s) = ((1 - p) + pe^{s})^{n}$
 * $\phi_X(\omega) = ((1-p) + pe^{j\omega})^{n}$
 ### Poisson Random Variable
-Denoted by Poisson($\lambda$), $\lambda > 0$, os a disrete random variable which assumes the values $0, 1, 2,...$ with PMF given by $p_X(k) = e^{-\lambda}\frac {\lambda^{k}}{k!}$. We have
+Denoted by Poisson($\lambda$), $\lambda > 0$, os a disrete random variable which assumes the values $0, 1, 2,...$ with PMF given by $$p_X(k) = e^{-\lambda}\frac {\lambda^{k}}{k!}$$
+We have
 * $E[X] = \lambda$
 * $K_X = \lambda$
 * $M_X(s) = e^{\lambda(e^{s} - 1)}$
@@ -119,41 +120,41 @@ Denoted by Geometric($p$), $0 < p < 1$, is a discrete random variable which coun
 ## Common Continuous Random Variables
 ### Uniform Random Variable
 A uniform random variable, $X$, over the interval $[a, b]$, denoted by Uniform(a, b), where a < b, has PDF and CDF
-$
+$$
 f_X(x) = 
 \begin{cases}
     \frac{1}{b - a} & \text{for} \space a \leq x \leq b\\
     0 & \text{otherwise.}
 \end{cases}
-$
+$$
 
-$
+$$
 F_X(x) = 
 \begin{cases}
     0 & x < a\\
     \frac{x - a}{b - a} & a \leq x \leq b\\
     1 & x > b    
 \end{cases}
-$
+$$
 * $E[X] = \int_{a}^{b} \frac{x}{b-a}dx = \frac{1}{2}(b + a)$
 ### Exponential Random Variable
 An exponential random variable, $X$, with parameter $\lambda > 0$, denoted by Exponential ($\lambda$), has PDF and CDF
 
-$
+$$
 f_X(x) = 
 \begin{cases}
     0 & x < 0\\
     \lambda e^{-\lambda x} & x \geq 0\\
 \end{cases}
-$
+$$
 
-$
+$$
 F_X(x) = 
 \begin{cases}
     0 & x < 0\\
     1- e^{-\lambda x} & x \geq 0\\
 \end{cases}
-$
+$$
 * $E[X] = \frac{1}{\lambda}$
 * $E[X^{2}] = \frac{1}{\lambda^{2}}$
 
@@ -173,3 +174,103 @@ Important Properties:
 * $M_X(s) = e^{ms + \frac{Ks^{2}}{2}}$
 * $\phi_X(\omega) = e^{m\omega + \frac{K\omega^{2}}{2}}$
 
+Let $\phi(x)$ be the CDF of Gaussian(0, 1), that is
+$$\phi = \frac{1}{2 \pi} \int_{-\infty}^{x} e^{\frac{-u^{2}}{2}}du$$
+If $X$ is Gaussian($m, K$), then $$F_X(x) =  \frac{x - m}{\sqrt{K}}$$
+and $$\phi(z) = 1 - \phi(-z)$$
+due to the symmetry of the Normal Distribution.
+
+#### Important Properties
+* The sum of two independent Gaussian($m_X, K_X$) and Gaussian($m_Y, K_Y$) is Gaussian($m_X+m_Y, K_X+K_Y$ )
+## Joint Distribution of Random Variables
+Consider the discrete random variables $X$ and $Y$. The **joint probability mass function** of $X$ and $Y$ is the probability $P(X = x, Y = y)$ that $X$ takes the value $x$ and 
+$Y$ takes the value $y$ for any possible values $x$ and $y$ assumed by $X$ and $Y$.
+The probability is denoted by $p_{X, Y}(x, y)$.
+
+For continuous random variables, the **joint cumulative distribution function (joint CDF)**
+is the probability $P(X \leq x, Y \leq y)$ for real $x$ and $y$. This is denoted by $F_{X,Y}(x, y)$.
+
+We say that $X$ and $Y$ are **jointly continuous** if there exists a function $f_{X,Y}(x, y) such that for all $x, y \in \mathbb{R}$,
+$$F_{X, Y}(x, y) = \int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(u, v)dvdu$$
+This PDF is called the **joint probability density function (joint PDF)** of $X$ and $Y$. If $F_{X, Y}(x, y)$ is differentiable, then
+$$f_{X,Y}(x, y) = \frac{\partial^{2}}{\partial x \partial y}F_{X,Y}(x, y)$$
+
+### Properties of the Joint CDF
+1) $F_{X,Y}(x, -\infty) = F_{X,Y}(-\infty, y) = 0, F_{X,Y}(\infty, \infty)=1.$
+2) $F_{X,Y}(x, \infty) = F_X(x)$ and $F_{X, Y}(\infty, y) = F_Y(y)$
+3) $F_{X,Y}(x,y)$ is nondecreasing in the two variables $x$ and $y$, that is, $F_{X,Y}(x_1, y_1) \leq F_{X,Y}(x_2, y_2)$ for $x_1 \leq x_2$ and $y_1 \leq y_2$
+
+### Marginal CDF
+We integrate one of the variable to accumulate the probability of that variable at every region in real number.
+
+$$f_X(x) = \int_{-\infty}^{\infty} f_{X, Y}(x, y)dy$$
+$$f_Y(y) = \int_{-\infty}^{\infty} f_{X, Y}(x, y)dx$$
+
+Now, the variable left would have probability that depends on its own distribution.
+
+$X$ and $Y$ are independent iff $$F_{X,Y}(x, y) = F_{X}(x)F_{Y}(x)$$
+or equivalently, 
+$$f_{X,Y}(x, y) = f_X(x)f_Y(y)$$
+for all real numbers $x$ and $y$.
+
+### Conditional CDF and PDF
+The **conditional cumulative distribution function** of the continuous random variable $X$ given the continuous random variable $Y$ is
+$$F_{X|Y}(x|y)=\frac{F_{X,Y}(x,y)}{F_Y(y)}$$
+provided that $F_Y(y) \neq 0$.
+
+The **conditional probability density function** of the continuous random variable $X$ given the continuous random variable $Y$ is
+$$f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}$$
+provided that $f_Y(y) \neq 0$
+
+### Covariance of $X$ and $Y$
+The **covariance** of $X$ and $Y$ is $$K_{X,Y} = E[(X-E[X])(Y-E[Y])]$$
+If $X$ and $Y$ are independent, then $$K_{X,Y} = 0$$
+If $K_{X,Y} = 0$, then $X$ and $Y$ are **uncorrelated**
+
+### Conditional Expectation
+Let $X$ and $Y$ be random variables. The **conditional expectation** of $X$ given that $Y = y$ is 
+$$E[X|Y=y] = \sum_x xp_{X|Y}(x|y)$$
+or 
+$$E[X|Y=y] = \int_{-\infty}^{\infty}xf_{X|Y}(x|y)dx$$
+
+Special Property:
+$E[E[X|Y]] = E[X]$
+
+## Random Vectors
+Let $X_1, X_2,..., X_n$ be random variables. Then, $\bold{X} = (X_1, X_2,...,X_n)$, is a (row) *random vector*
+### Discrete
+If $X_1, X_2,...,X_n$ are discrete, then $\bold{X}$ is a discrete random vector with joint PMF
+$$p_{\bold{X}}(\bold{x})=P(X_1=x_1, X_2=x_2,...,X_n = x_n)$$
+where $\bold{x} = (x_1, x_2,...,x_n)$ and $x_1, x_2,...,x_n$ are values assumed by $X_1, X_2,...,X_n$
+
+### Continuous
+If $X_1, X_2,...,X_n$ are continuous, then $\bold{X} = (X_1, X_2,...,X_n)$ is a continuous random vector with joint CDF given by
+$$F_{\bold{X}}(\bold{x}) = P(X_1 \leq x_1, X_2 \leq x_2,..., X_n \leq x_n)$$
+where $\bold{x} = (x_1, x_2,...,x_n) \in \mathbb{R}^{n}$
+
+The joint PDF of $\bold{X}$, denoted by $f_{\bold{X}}(\bold{x})$, is given by
+
+$$F_{\bold{X}}(\bold{x}) = \int_{-\infty}^{x_n}...\int_{-\infty}^{x_2}\int_{-\infty}^{x_1}f_{X_1, X_2,...,X_n}(u_1, u_2,...,u_n)du_1du_2...du_n$$
+
+### Mean Vector
+Let $\bold{X} = (X_1, X_2,\dots,X_n)$ be a random vector. Then $$\bold{m_X}=(m_1, m_2,\dots,m_n)$$
+is called the **mean vector** of $\bold{X}$ and 
+$$
+\bold{K_X}=
+\begin{pmatrix}
+  K_{X_1} & K_{X_1, X_2} & \dots & K_{X_1, X_n} \\
+  K_{X_2, X_1} & K_{X_2} & \dots & K_{X_2, X_n} \\
+  \vdots & \vdots & \ddots & \vdots\\
+  K_{X_n, X_1} & K_{X_n, X_2} & \dots & K_{X_n} \\
+\end{pmatrix}
+$$
+is called the **covariance matrix** of $\bold{X}$. 
+
+### Gaussian Random Vectors
+The vector $\bold{X} = (X_1, X_2, \dots, X_n)$ of random variables is called a **Gaussian random vector** if
+$$f_{\bold{X}}(\bold{x})=\frac{1}{\sqrt{(2 \pi)^{n}\det(\bold{K_{\bold{X}}})}}e^{-\frac{1}{2}((\bold{x-m_X})\bold{K_{\bold{X}}}^{-1}(\bold{x-m_X})^{T})}$$
+$X_1, X_2, \dots, X_n$ are *jointly Gaussian*.
+
+**The joint distribution of two Gaussian is not necessarily a Gaussian**
+
+**The joint distribution of two indipendent Gaussian is a Gaussian**
