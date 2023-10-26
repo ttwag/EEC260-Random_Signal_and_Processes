@@ -95,14 +95,45 @@ Denoted by Bernoulli($p$), is a discrete random variable which assumes two value
 * $K_X = p(1 - p)$
 * $M_X(s) = (1 - p) + pe^{s}$
 * $\phi_X(\omega) = (1 - p) + pe^{j\omega}$.
+
+### Geometric Random Variable
+$X$ is a **geometric (p)** random variable if the PMF of $X$ has the form
+$$P_X(x) = 
+
+\begin{cases} 
+p(1 - p)^{x - 1} &  x = 1, 2,\dots \\
+0 & otherwise. 
+\end{cases}
+$$ 
+
+The geometric random variable calculates the probability of success at the nth trial and failed all trials before.
+
 ### Binomial Random Variable
 Denoted by Binomial($n, p$), is a discrete random variable which counts the number of successes in n independent trials where the probability of each success is $p$. It assumes the values $0, 1, 2, ..., n $ with PMF given by <br>
 $$p_X(k) = {\binom {n}{k}}p^{k}(1 - p)^{n - k}$$
+
+Note that the Bernoulli Random variable is the binomial random variable with $n = 1$.
+
+**Intuition:** The binomial random variable counts then sum all possible combinations of k successes in n trials. Instead of adding their probability up, it multiplies the probability by the number of combinations because the probabilities of the k sucessess in n trials are always the same no matter how they're arranged.
+
+
 We have
 * $E[X] = np$
 * $K_X = np(1-p)$
 * $M_X(s) = ((1 - p) + pe^{s})^{n}$
 * $\phi_X(\omega) = ((1-p) + pe^{j\omega})^{n}$
+
+### Pascal Random Variable
+The Pascal random variable is the number of trials up to and including the kth success.
+$X$ is a **Pascal (k , p)** random variable if the PMF of $X$ has the form
+$$P_X(x) = {x - 1 \choose k - 1} p^{k}(1-p)^{x - k}$$
+where $ 0 < p < 1$ and $k$ is an integer such that $k \geq 1$
+
+Note that when $k = 1$, the pascal random variable is a geometric random variable because we're including only the 1st success.
+
+**Intuition:** We have x trials with k successes. The approach is to find the probability before the kth success, then multiply it with the probability of the kth success because they're independent events.
+To find the probability before the kth success, we could use the binomial random variable to find the probability of k - 1 successes in x - 1 trials (remember that the kth success is the xth trial), then we will have $x - 1 \choose k - 1$ multiplied by $p^{k - 1}(1-p)^{(x - 1) - (k - 1)}$. Finally, multiply it by p for the kth trial, and we have the pascal random variable.
+
 ### Poisson Random Variable
 Denoted by Poisson($\lambda$), $\lambda > 0$, os a disrete random variable which assumes the values $0, 1, 2,...$ with PMF given by $$p_X(k) = e^{-\lambda}\frac {\lambda^{k}}{k!}$$
 We have
