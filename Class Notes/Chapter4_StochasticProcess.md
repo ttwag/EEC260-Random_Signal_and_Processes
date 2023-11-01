@@ -35,10 +35,65 @@ $$P_\bold{X}(\bold{x}) =
 $$
 where $k = x_1 + \dots + x_n$ and $\bold{X} = [X_1, \dots, X_n]^T$
 
-## Counting Process
-A stochastic process $N(t)$ is a **counting process** if for every sample function, $n(t, s) = 0$ for $t < 0$ and $n(t, s)$ is integer-valued and nondecreasing with time.
 
-## Poisson Process
+## The Expected Value of a Process
+The expected value of a stochastic process $X(t)$ is the deterministic function
+$$\mu_X(t) = E[X(t)]$$
+
+## Autocovariance
+The autocovariance function of the stochastic process $X(t)$ is 
+$$C_X(t, \tau) - Cov[X(t), X(t + \tau)]$$
+
+The autocovariance function of the random sequence $X_n$ is
+$$C_X[m, k] = Cov[X_m, X_{m+k}]$$
+
+## Autocorrelation Function
+The autocorrelation function of the stochastic process $X(t)$ is
+$$R_X(t, \tau)  = E[X(t)X(t + \tau)]$$
+
+The autocorrelation function of the random sequence $X_n$ is
+$$R_X[m, k] = E[X_m, X_{m + k}]$$
+
+The auto correlation and autocovariance functions of a process $X(t)$ satisfy 
+$$C_X(t, \tau) = R_X(t, \tau) - \mu_X(t)\mu_X(t + \tau)$$
+
+The auto correlation and autocovariance functions of a random sequence $X_n$ satisfy 
+$$C_X[n, k] = R_X[n, k] - \mu_X(n)\mu_X(n + k)$$
+
+## Cross-correlation and Cross-covariance
+Let $X(t)$ and $Y(t)$ be stochastic processes. Their cross-correlation function is
+$$R_{XY}(t_1, t_2) = E[X(t_1)Y(t_2)]$$
+
+and their cross-covariance function is
+$$K_{XY}(t_1, t_2) = R_{XY}(t_1, t_2) - m_X(t_1)m_Y(t_2)$$
 
 
- The mean of the process is a function of time that could increase and decrease.
+## Strict Sense Stationary Process (SSS)
+For stationary process, we observe the same random variable at all time instants. The statiscal properties of the process fo not change with time.
+
+A stochastic process $X(t)$ is stationary if and only if for all sets of time instants $t_1, \dots, t_m$, and any time difference $\tau$, 
+$$f_{X(t_1), \dots, X(t_m)}(x_1, \dots, x_m) = f_{X(t_1 + \tau), \dots,X(t_m + \tau)}(x_1, \dots, x_m) $$
+
+For a stationary process $X(t)$,
+
+(a) $\mu_X(t) = \mu_X$
+
+(b) $R_X(t, \tau) = R_X(0, \tau) = R_X(\tau)$
+
+(c) $C_X(t, \tau) = R_X(\tau)-\mu_X^{2} = C_X(\tau)$
+
+## Wide Sense Stationary Process (WSS)
+$X(t)$ is a wide sense stationary process if and only if for all t
+$$ E[X(t)] = \mu_X, \space and \space \space R_X(t, \tau) = R_X(0, \tau) = R_X(\tau)$$
+
+The autocorrelation function of a Wide Sense Stationary Process $X(t)$, has the following properties:
+
+(a) $R_X(0) \geq 0$
+
+(b) $R_X(\tau) = R_X(-\tau)$
+
+(c) $R_X(0) \geq |R_X(\tau)|$
+
+## Jointly WSS
+We say that the stochastic processes $X(t)$ and $Y(t)$ are jointly WSS if both $X(t)$ and $Y(t)$ are WSS
+and $R_{XY}(t_1, t_2)$ depends only on $t_1 - t_2$

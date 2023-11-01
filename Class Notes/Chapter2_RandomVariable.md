@@ -142,6 +142,30 @@ We have
 * $M_X(s) = e^{\lambda(e^{s} - 1)}$
 * $\phi_X(\omega) = e^{\lambda (e^{j\omega} - 1)}$
 * Poisson Random Variable could be used as an approxiation for Binomial Random Variable with $p = \frac{\lambda}{n}$ as $ n \to \infty$ 
+
+**Derivation:** The Poisson distribution is a limiting case of the binomial distribution which arises when the number of trials n approaches infinity and the expected value $E[Binomial(n,p)] = np$ remains constant.
+
+The PMF of Binomial(n, p) is the following:
+$$
+(1)
+Binomial(x;n, p) = \frac{n!}{(n-x)!x!}p^{x}(1-p)^{n-x}
+$$
+Let $\lambda = np$.
+The binomial distribution can be rewritten as
+
+$$
+(2)\space \space
+\frac{\lambda^{x}}{x!}\frac{n!}{(n-x)!n^{x}}\Big(1 - \frac{\lambda}{n}\Big)^{n}\Big(1 - \frac{\lambda}{n}\Big)^{-x}
+$$
+
+As n approaches infinity, 
+$$(3)\lim_{n \to \infty}\frac{n!}{(n-x)!n^{x}} = 1,$$
+$$(4)\lim_{n \to \infty}\Big(1-\frac{\lambda}{n}\Big)^{n}=e^{-\lambda},$$
+$$(5)\lim_{n \to \infty}\Big(1-\frac{\lambda}{n}\Big)^{-x}=1$$
+
+Therefore,
+$$(6)\lim_{n \to \infty} Binomial(x;n,p) = \frac{\lambda^{x}e^{-\lambda}}{x!}$$
+
 ### Geometric Random Variable
 Denoted by Geometric($p$), $0 < p < 1$, is a discrete random variable which counts the number of trials required for the first success in independent trials, where the probability of each success is $p$. It assumes the values $1, 2, 3,...$ with the PMF given by $p_X(k) = (1 - p)^{k-1}p$.
 * $E[X] = \frac{1}{p}$
