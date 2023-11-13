@@ -20,7 +20,7 @@ is an event with probability $P(X \leq x)$.
 
 ![Figure1](./images/Figure1.png)
 
-Note that, $R$ is the interval $(-\infty, x]$. This means that we are summing the probability of every outcomes in the interval to obtain the probability that the event representing that interval occurs.
+Note that, $R$ is the interval $(-\infty, x]$. This means that we are summing the probability of every outcomes in the interval to obtain the probability that the event mapped to that interval occurs.
 <br>
 <br>
 This probability, denoted by $F_X(x)$, is the *cumulative distribution function* (CDF) of $X$.
@@ -58,9 +58,7 @@ Then, $Y$ is a random variable.<br>
 Let $y$ be a real number and $S_ \leq y = \Set{x: g(x) \leq y}$. Then, $F_Y(y) = P(Y \leq y) = P(X \in S_\leq y)$ <br>
 ### PMF
 If $X$ is discrete, then $ Y = g(X)$ is discrete.<br>
-Let $S_=y = \Set{x: g(x) = y}$. We have $p_Y(y) = P(X \in S_=y)$
-### Go from PDF of X to Y
-Find the CDF of $Y$ from $X$ and differentiate it.
+Let $S_{=y} = \Set{x: g(x) = y}$. We have $p_Y(y) = P(X \in S_{=y})$
 
 ## Expected Value of a Random Variable
 The *expected value*, $E[X]$, is defined as <br>
@@ -78,7 +76,7 @@ The $l^{th}$ moment of the random variable $X$, where $l$ is a positive integer,
 The *variance* of $X$ is $K = Var[X] = E[(X - m_X)^{2}] = E[X^{2}] - m^{2}_X$
 ### Moment Generating Function
 The *moment generating function* of $X$ is $M_X(s) = E[e^{sX}]$ where s is in the region of nvergence (ROC) of the function.<br>
-* Property: $E[X^{l}] = \frac{d^{l}}{ds^{l}} M_X(s)\large |_{s = 0}$
+* Property: $E[X^{l}] = \frac{d^{l}}{ds^{l}} M_X(s)\bigg|_{s = 0}$
 
 ### Characteristic Function
 The *characteristic function* of $X$ is obtained by evaluating $M_X(s)$ on the imaginary axis. That is, $\Phi_X(\omega) = E[e^{j\omega X}]$, where $j = \sqrt{-1}$. Since $|e^{j\omega X}| = 1$, the characteristic function always exists. 
@@ -132,7 +130,7 @@ where $ 0 < p < 1$ and $k$ is an integer such that $k \geq 1$
 Note that when $k = 1$, the pascal random variable is a geometric random variable because we're including only the 1st success.
 
 **Intuition:** We have x trials with k successes. The approach is to find the probability before the kth success, then multiply it with the probability of the kth success because they're independent events.
-To find the probability before the kth success, we could use the binomial random variable to find the probability of k - 1 successes in x - 1 trials (remember that the kth success is the xth trial), then we will have $x - 1 \choose k - 1$ multiplied by $p^{k - 1}(1-p)^{(x - 1) - (k - 1)}$. Finally, multiply it by p for the kth trial, and we have the pascal random variable.
+To find the probability before the kth success, we could use the binomial random variable to find the probability of k - 1 successes in x - 1 trials (remember that the kth success is the xth trial), then we will have ${x - 1 \choose k - 1} p^{k - 1}(1-p)^{(x - 1) - (k - 1)}$. Finally, multiply it by p for the kth trial, and we have the pascal random variable.
 
 ### Poisson Random Variable
 Denoted by Poisson($\lambda$), $\lambda > 0$, os a disrete random variable which assumes the values $0, 1, 2,...$ with PMF given by $$p_X(k) = e^{-\lambda}\frac {\lambda^{k}}{k!}$$
@@ -165,6 +163,9 @@ $$(5)\lim_{n \to \infty}\Big(1-\frac{\lambda}{n}\Big)^{-x}=1$$
 
 Therefore,
 $$(6)\lim_{n \to \infty} Binomial(x;n,p) = \frac{\lambda^{x}e^{-\lambda}}{x!}$$
+
+
+The poisson random variable is used when you have a large n and you know the average rate and that the average rate remains constant no matter how big n becomes.
 
 ### Geometric Random Variable
 Denoted by Geometric($p$), $0 < p < 1$, is a discrete random variable which counts the number of trials required for the first success in independent trials, where the probability of each success is $p$. It assumes the values $1, 2, 3,...$ with the PMF given by $p_X(k) = (1 - p)^{k-1}p$.
@@ -227,7 +228,7 @@ Important Properties:
 * $E[X] = m$
 * $K_X = K$
 * $M_X(s) = e^{ms + \frac{Ks^{2}}{2}}$
-* $\phi_X(\omega) = e^{m\omega + \frac{K\omega^{2}}{2}}$
+* $\phi_X(\omega) = e^{jm\omega + \frac{K\omega^{2}}{2}}$
 
 Let $\phi(x)$ be the CDF of Gaussian(0, 1), that is
 $$\phi = \frac{1}{2 \pi} \int_{-\infty}^{x} e^{\frac{-u^{2}}{2}}du$$
