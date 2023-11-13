@@ -16,6 +16,7 @@ The Markove chain is **homogeneous** if $P(X(t+1) = j|X(t)=i)$, which means it d
 
 ## Transition Probability Matrix
 The matrix P is called the (one-step) transition probability matrix.
+
 $$
 P =
 \begin{pmatrix}
