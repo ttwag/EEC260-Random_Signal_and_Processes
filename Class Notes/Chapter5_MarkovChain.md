@@ -1,7 +1,10 @@
 # Markov Chain
 ## Introduction
-A Markov Chain is a discrete-time Markov process. If X(0), X(1),... is a sequence of random variables, then this sequence is a Markove chain if
-$$P(X(t+1) = i_{t+1}|X(t) = i_{t}, X(t-1) = i_{t-1},\dots,X(0)=i_{0})= P(X(t+1)=i_{t+1}|X(t)=i_{t})$$
+A Markov Chain is a discrete-time Markov process. If X(0), X(1),... is a sequence of random variables, then this sequence is a Markov chain if
+$$P(X(t+1) = i_{t+1}|X(t) = i_{t}, X(t-1) = i_{t-1},\dots,X(0)=i_{0})= P(X(t+1)=i_{t+1}|X(t)=i_{t}) = P_{i, j}$$
+
+where $p_{i,j} \geq 0$ and $\sum_{0}^{\infty} p_{i, j} = 0$.
+
 for all nonnegative integers $t$ and all values $i_{t+1}, i_{t},\dots,i_{0}$ for $X(t + 1), X(t),\dots, X(0)$ respectively.
 
 We consider only **finite-state** Markov chains. That is, the values assumed by the random variables form a finite set, $S$, which we take to be $\Set{1, 2,\dots,N}$.
