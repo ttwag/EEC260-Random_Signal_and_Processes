@@ -1,6 +1,6 @@
-# EEC260 - Random Signal and Processes
+# EEC260 - Random Signal and Noise
 
-This repository contains the lecture notes to EEC260 - Random Signal and Processes. This is a graduate-level course that covers the basics of Probability and various models of stochastic processes.
+This repository contains the lecture notes to EEC260 - Random Signal and Noise. This is a graduate-level course that covers the basics of Probability and various models of stochastic processes.
 
 ![Figure4](./Class%20Notes/images/Figure4.png)
 
